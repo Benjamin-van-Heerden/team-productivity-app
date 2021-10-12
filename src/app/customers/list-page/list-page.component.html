@@ -1,0 +1,21 @@
+<h1>Employees</h1>
+
+<mat-nav-list role="list">
+  <h3 mat-subheader>Employees (Fake Data)</h3>
+  <mat-list-item
+    *ngFor="let cust of customers | async"
+    [routerLink]="cust.id"
+    role="listitem"
+  >
+    <mat-icon mat-list-icon>account_box</mat-icon>
+    <h3>{{ cust.name }}</h3>
+  </mat-list-item>
+  <button
+    mat-raised-button
+    color="accent"
+    class="add-button"
+    (click)="openListDialog()"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+</mat-nav-list>

@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "team-productivity-app"
+  },
+  "targets": {
+    "team-productivity-app": {
+      "hosting": {
+        "team-productivity-app": [
+          "team-productivity-app"
+        ]
+      }
+    }
+  }
+}

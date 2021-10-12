@@ -1,0 +1,34 @@
+<mat-card *ngIf="customer | async as cust">
+  <mat-card-header>
+    <mat-card-title>{{ cust.name }}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]="cust.image" />
+  <mat-card-content>
+    <p>
+      {{ cust.bio }}
+    </p>
+  </mat-card-content>
+
+  <button mat-raised-button routerLink="/customers">BACK</button>
+
+</mat-card>
+
+
+<mat-card>
+    <p>
+      This content is server rendered with Angular Universal, NestJS, and Google
+      Cloud Run.
+    </p>
+  
+    Paste URL:
+    <pre>https://team-productivity-app.web.app/{{ customerId }}</pre>
+  
+    <a
+      href="https://cards-dev.twitter.com/validator"
+      target="blank"
+      mat-stroked-button
+      color="accent"
+      >Twitter Card Validator</a
+    >
+  
+  </mat-card>

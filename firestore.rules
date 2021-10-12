@@ -1,0 +1,27 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /boards/{document} {
+    	allow read;
+      allow create: if requestMatchesUID();
+      allow update: if requestMatchesUID() && resourceMatchesUID();
+      allow delete: if resourceMatchesUID();
+    }
+    
+    function requestMatchesUID() {
+    	return request.resource.data.uid == request.auth.uid;
+    }
+    
+    function resourceMatchesUID() {
+    	return resource.data.uid == request.auth.uid;
+    }
+  }
+  
+  match /databases/{database}/documents {
+    match /customers/{document} {
+      allow read;
+      allow create;
+    }
+  }
+}
+
